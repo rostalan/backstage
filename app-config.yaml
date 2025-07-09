@@ -295,6 +295,11 @@ auth:
         scope: ${AUTH_ATLASSIAN_SCOPES}
     myproxy: {}
     guest: {}
+    foobar:
+      development: {}
 
 permission:
   enabled: true
+
+scorecards:
+  jsonDataUrl: https://raw.githubusercontent.com/ossf/scorecard/main/docs/scorecard.json

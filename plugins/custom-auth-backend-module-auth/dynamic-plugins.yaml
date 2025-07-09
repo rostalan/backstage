@@ -1,0 +1,12 @@
+plugins:
+  - package: '@backstage/plugin-custom-auth-backend-module-auth'
+    name: custom-auth-backend-module-auth
+    version: '0.1.0'
+    platform: 'node'
+    pluginType: 'backend-plugin-module'
+    pluginConfig:
+      auth:
+        providers:
+          foobar:
+            development:
+              # Empty config for proxy auth 
