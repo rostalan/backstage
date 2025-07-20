@@ -14,10 +14,24 @@
  * limitations under the License.
  */
 
-/**
- * The auth backend module for the custom-auth plugin.
- *
- * @packageDocumentation
- */
+import { SignInResolver } from '@backstage/plugin-auth-node';
 
-export { customAuthModuleAuth as default } from './module';
+/**
+ * Custom sign-in resolver that creates user tokens for authenticated users
+ */
+export const customSignInResolver: SignInResolver<{
+  username: string;
+  name: string;
+  email: string;
+}> = async ({ result }, ctx) => {
+  const userEntityRef = `user:default:${result.username}`;
+  const ownershipRefs = [userEntityRef];
+
+  // Issue token directly instead of trying to find user in catalog
+  return await ctx.issueToken({
+    claims: {
+      sub: userEntityRef,
+      ent: ownershipRefs,
+    },
+  });
+};

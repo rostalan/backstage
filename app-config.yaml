@@ -255,6 +255,10 @@ auth:
         # provide a list of scopes as needed for your OAuth2 Server:
         #
         # scope: saml-login-selector openid profile email
+    custom:
+      development:
+        # Custom auth provider configuration
+        # This enables the custom static auth provider for testing
     oidc:
       # Note that you must define a session secret (see above) since the oidc provider requires session support.
       # Note that by default, this provider will use the 'none' prompt which assumes that your are already logged on in the IDP.
@@ -295,8 +299,6 @@ auth:
         scope: ${AUTH_ATLASSIAN_SCOPES}
     myproxy: {}
     guest: {}
-    foobar:
-      development: {}
 
 permission:
   enabled: true

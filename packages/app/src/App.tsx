@@ -85,6 +85,7 @@ import {
 } from '@backstage/plugin-notifications';
 import { CustomizableHomePage } from './components/home/CustomizableHomePage';
 import { HomePage } from './components/home/HomePage';
+import { CustomSignInPage } from '@backstage/plugin-custom-auth-plugin';
 
 const app = createApp({
   apis,
@@ -232,6 +233,7 @@ const routes = (
       {customDevToolsPage}
     </Route>
     <Route path="/notifications" element={<NotificationsPage />} />
+    <Route path="/custom-auth-plugin" element={<CustomSignInPage />} />
   </FlatRoutes>
 );
 
